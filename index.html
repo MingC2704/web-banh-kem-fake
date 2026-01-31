@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tiệm Bánh Minh Tuấn | Bánh tươi mỗi ngày</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-grid">
+        <a class="logo" href="#">
+          <span class="logo-icon">🍰</span>
+          Tiệm Bánh Minh Tuấn
+        </a>
+        <nav class="nav">
+          <a href="#products">Sản phẩm</a>
+          <a href="#about">Về chúng tôi</a>
+          <a href="#reviews">Đánh giá</a>
+          <a href="#contact">Liên hệ</a>
+        </nav>
+        <div class="header-actions">
+          <button class="icon-btn" id="wishlistButton" aria-label="Yêu thích">
+            ❤<span class="badge" id="wishlistCount">0</span>
+          </button>
+          <button class="icon-btn" id="cartButton" aria-label="Giỏ hàng">
+            🛒<span class="badge" id="cartCount">0</span>
+          </button>
+          <button class="ghost-btn" id="authButton">Đăng nhập</button>
+          <button class="primary-btn" id="hotlineButton">Hotline: 0345 794 449</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <span class="pill">Bánh kem tươi - giao trong 2 giờ</span>
+            <h1>Bánh ngon cho mọi khoảnh khắc yêu thương</h1>
+            <p>
+              Đặt bánh sinh nhật, kỷ niệm, cưới hỏi với hơn 200 mẫu trang trí.
+              Tuỳ chỉnh theo yêu cầu, nguyên liệu nhập khẩu, làm mới mỗi ngày.
+            </p>
+            <div class="hero-actions">
+              <a class="primary-btn" href="#products">Mua ngay</a>
+              <a class="ghost-btn" href="#builder">Tự thiết kế bánh</a>
+            </div>
+            <div class="hero-stats">
+              <div>
+                <strong>12k+</strong>
+                <span>Khách hàng hài lòng</span>
+              </div>
+              <div>
+                <strong>4.9/5</strong>
+                <span>Đánh giá trung bình</span>
+              </div>
+              <div>
+                <strong>50+</strong>
+                <span>Điểm giao nhận</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-card">
+            <img id="heroImage" src="" alt="Bánh kem tươi" />
+            <div class="hero-card-info">
+              <h3>Signature Strawberry Cloud</h3>
+              <p>500g · 6-8 người ăn</p>
+              <div class="price">390.000₫</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="promotion">
+        <div class="container">
+          <div class="promo-header">
+            <h2>🔥 Khuyến mãi Hot</h2>
+            <p>Những bánh được giảm giá đặc biệt cho bạn</p>
+          </div>
+          <div class="promo-grid" id="promoGrid"></div>
+        </div>
+      </section>
+
+      <section class="category-tabs">
+        <div class="container">
+          <div class="tab-buttons">
+            <button class="tab-btn active" data-category="all">Tất cả</button>
+            <button class="tab-btn" data-category="sinh-nhat">Sinh nhật</button>
+            <button class="tab-btn" data-category="cuoi-hoi">Cưới hỏi</button>
+            <button class="tab-btn" data-category="cupcake">Cupcake</button>
+            <button class="tab-btn" data-category="banh-lanh">Bánh lạnh</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="category-slide">
+        <div class="slide-container">
+          <div class="slide-content" id="slideContent"></div>
+          <button class="slide-nav slide-prev" id="slidePrev">❮</button>
+          <button class="slide-nav slide-next" id="slideNext">❯</button>
+        </div>
+        <div class="slide-dots" id="slideDots"></div>
+      </section>
+
+      <section class="filter-bar">
+        <div class="container filter-grid">
+          <div class="search-box">
+            <input id="searchInput" type="text" placeholder="Tìm bánh theo tên, vị, dịp..." />
+            <span>🔍</span>
+          </div>
+          <select id="categorySelect">
+            <option value="all">Tất cả danh mục</option>
+            <option value="sinh-nhat">Sinh nhật</option>
+            <option value="cuoi-hoi">Cưới hỏi</option>
+            <option value="cupcake">Cupcake</option>
+            <option value="banh-lanh">Bánh lạnh</option>
+          </select>
+          <select id="sortSelect">
+            <option value="popular">Phổ biến nhất</option>
+            <option value="priceAsc">Giá tăng dần</option>
+            <option value="priceDesc">Giá giảm dần</option>
+            <option value="rating">Đánh giá cao</option>
+          </select>
+          <button class="ghost-btn" id="clearFilter">Xoá lọc</button>
+        </div>
+      </section>
+
+      <section class="container" id="products">
+        <div class="section-heading">
+          <div>
+            <h2>Bộ sưu tập bánh kem</h2>
+            <p>Chọn ngay mẫu bánh phù hợp với dịp của bạn.</p>
+          </div>
+          <button class="primary-btn" id="openBuilder">Tự thiết kế bánh</button>
+        </div>
+        <div class="product-grid" id="productGrid"></div>
+      </section>
+
+      <section class="builder" id="builder">
+        <div class="container builder-grid">
+          <div>
+            <h2>Tự thiết kế bánh theo ý bạn</h2>
+            <p>Chọn size, vị kem và lớp phủ yêu thích. Xem giá cập nhật ngay.</p>
+            <div class="builder-options">
+              <div>
+                <label>Size</label>
+                <div class="option-row" id="sizeOptions"></div>
+              </div>
+              <div>
+                <label>Vị kem</label>
+                <div class="option-row" id="flavorOptions"></div>
+              </div>
+              <div>
+                <label>Lớp phủ</label>
+                <div class="option-row" id="toppingOptions"></div>
+              </div>
+            </div>
+          </div>
+          <div class="builder-card">
+            <div class="builder-preview">
+              <img id="builderImage" src="" alt="Bánh tuỳ chỉnh" />
+            </div>
+            <div class="builder-summary">
+              <h3>Bánh tuỳ chỉnh</h3>
+              <ul id="builderSummary"></ul>
+              <div class="builder-price" id="builderPrice">0₫</div>
+              <button class="primary-btn" id="addCustomCake">Thêm vào giỏ</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="benefits" id="about">
+        <div class="container benefits-grid">
+          <div>
+            <h2>Tại sao khách chọn chúng tôi?</h2>
+            <p>
+              Từ bánh kem truyền thống đến phong cách Hàn Quốc, tiệm luôn cập nhật
+              mẫu mới, chất lượng đồng nhất tại mọi chi nhánh.
+            </p>
+            <ul>
+              <li>✔ Giao hàng nhanh trong 2 giờ nội thành.</li>
+              <li>✔ Nguyên liệu nhập khẩu, kem ít ngọt.</li>
+              <li>✔ Đặt hàng linh hoạt, tuỳ chỉnh ghi chữ miễn phí.</li>
+              <li>✔ Hỗ trợ đổi trả trong 12 giờ nếu lỗi từ cửa hàng.</li>
+            </ul>
+          </div>
+          <div class="benefit-cards">
+            <div class="card">
+              <h3>Đặt trước dễ dàng</h3>
+              <p>Đặt bánh qua web, Zalo, Facebook hoặc hotline.</p>
+            </div>
+            <div class="card">
+              <h3>Ưu đãi mỗi tuần</h3>
+              <p>Giảm giá cho bánh set party và combo trà chiều.</p>
+            </div>
+            <div class="card">
+              <h3>Thanh toán linh hoạt</h3>
+              <p>Chấp nhận COD, chuyển khoản, ví điện tử.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="reviews" id="reviews">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <h2>Khách hàng nói gì</h2>
+              <p>Hơn 2.000 đánh giá 5 sao trong năm vừa qua.</p>
+            </div>
+            <button class="ghost-btn" id="openReviewForm">Gửi đánh giá</button>
+          </div>
+          <div class="review-grid" id="reviewGrid"></div>
+        </div>
+      </section>
+
+      <section class="newsletter">
+        <div class="container newsletter-grid">
+          <div>
+            <h2>Nhận ưu đãi độc quyền</h2>
+            <p>Đăng ký để nhận mã giảm giá 10% cho đơn đầu tiên.</p>
+          </div>
+          <form id="newsletterForm">
+            <input type="email" placeholder="Email của bạn" required />
+            <button class="primary-btn" type="submit">Đăng ký</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="contact" id="contact">
+        <div class="container contact-grid">
+          <div>
+            <h2>Liên hệ đặt bánh nhanh</h2>
+            <p>Hỗ trợ 7:00 - 22:00 mỗi ngày.</p>
+            <div class="contact-info">
+              <div>
+                <strong>Hotline</strong>
+                <span>0345 794 449</span>
+              </div>
+              <div>
+                <strong>Địa chỉ</strong>
+                <span>25 Nguyễn Huệ, Q.1, TP.HCM</span>
+              </div>
+              <div>
+                <strong>Email</strong>
+                <span>mingcofficial@gmail.com</span>
+              </div>
+            </div>
+          </div>
+          <form class="contact-form" id="contactForm">
+            <input type="text" placeholder="Họ và tên" required />
+            <input type="tel" placeholder="Số điện thoại" required />
+            <textarea placeholder="Yêu cầu của bạn" rows="4" required></textarea>
+            <button class="primary-btn" type="submit">Gửi yêu cầu</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <h3>Tiệm Bánh Minh Tuấn</h3>
+          <p>Thương hiệu bánh kem cao cấp với hơn 10 năm kinh nghiệm.</p>
+        </div>
+        <div>
+          <h4>Danh mục</h4>
+          <a href="#products">Bánh sinh nhật</a>
+          <a href="#products">Bánh cưới hỏi</a>
+          <a href="#products">Cupcake</a>
+        </div>
+        <div>
+          <h4>Chính sách</h4>
+          <a href="#">Chính sách giao hàng</a>
+          <a href="#">Hình thức thanh toán</a>
+          <a href="#">Chính sách đổi trả</a>
+        </div>
+        <div>
+          <h4>Theo dõi</h4>
+          <a href="https://www.facebook.com/cong.minh.338794" target="_blank">Facebook</a>
+          <a href="https://zalo.me/0963881573" target="_blank">Zalo - 0963881573</a>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 Tiệm Bánh Minh Tuấn. All rights reserved.</div>
+    </footer>
+
+    <div class="overlay" id="overlay"></div>
+
+    <aside class="cart" id="cartPanel">
+      <div class="cart-header">
+        <h3>Giỏ hàng</h3>
+        <button class="icon-btn" id="closeCart">✕</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-summary">
+        <div>
+          <span>Tạm tính</span>
+          <strong id="cartSubtotal">0₫</strong>
+        </div>
+        <div>
+          <span>Phí giao hàng</span>
+          <strong id="cartShipping">0₫</strong>
+        </div>
+        <div class="total">
+          <span>Tổng cộng</span>
+          <strong id="cartTotal">0₫</strong>
+        </div>
+        <button class="primary-btn" id="checkoutButton">Thanh toán</button>
+      </div>
+    </aside>
+
+    <aside class="wishlist" id="wishlistPanel">
+      <div class="cart-header">
+        <h3>Danh sách yêu thích</h3>
+        <button class="icon-btn" id="closeWishlist">✕</button>
+      </div>
+      <div class="cart-items" id="wishlistItems"></div>
+    </aside>
+
+    <div class="modal" id="reviewModal">
+      <div class="modal-card">
+        <div class="modal-header">
+          <h3>Gửi đánh giá</h3>
+          <button class="icon-btn" id="closeReview">✕</button>
+        </div>
+        <form id="reviewForm">
+          <input type="text" placeholder="Tên của bạn" required />
+          <select required>
+            <option value="">Chọn số sao</option>
+            <option value="5">5 sao</option>
+            <option value="4">4 sao</option>
+            <option value="3">3 sao</option>
+          </select>
+          <textarea placeholder="Chia sẻ cảm nhận" rows="4" required></textarea>
+          <button class="primary-btn" type="submit">Gửi đánh giá</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" id="checkoutModal">
+      <div class="modal-card">
+        <div class="modal-header">
+          <h3>Thông tin thanh toán</h3>
+          <button class="icon-btn" id="closeCheckout">✕</button>
+        </div>
+        <form id="checkoutForm">
+          <input type="text" placeholder="Họ và tên" required />
+          <input type="tel" placeholder="Số điện thoại" required />
+          <input type="text" placeholder="Địa chỉ giao hàng" required />
+          <select id="paymentMethod" required>
+            <option value="">Hình thức thanh toán</option>
+            <option value="cod">Thanh toán khi nhận</option>
+            <option value="bank">Chuyển khoản</option>
+            <option value="momo">Ví MoMo</option>
+          </select>
+          <div id="qrcodeContainer" style="display: none; text-align: center; margin: 20px 0; padding: 20px; background: #f9f9f9; border-radius: 16px;">
+            <img id="qrcodeImage" src="" alt="QR Code thanh toán" style="max-width: 100%; width: 280px; height: 280px; object-fit: contain; margin: 0 auto; display: block;" />
+            <p style="font-size: 0.95rem; color: var(--muted); margin-top: 12px; font-weight: 600;">Quét mã QR để thanh toán</p>
+          </div>
+          <textarea placeholder="Ghi chú thêm" rows="3"></textarea>
+          <button class="primary-btn" type="submit">Xác nhận đặt bánh</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" id="authModal">
+      <div class="modal-card" style="max-width: 420px;">
+        <div class="modal-header">
+          <h3 id="authTitle">Đăng nhập</h3>
+          <button class="icon-btn" id="closeAuth">✕</button>
+        </div>
+        <div id="loginForm" class="auth-form">
+          <form id="loginFormEl">
+            <input type="email" placeholder="Email" required />
+            <input type="password" placeholder="Mật khẩu" required />
+            <button class="primary-btn" type="submit">Đăng nhập</button>
+          </form>
+          <p style="text-align: center; margin-top: 12px; color: var(--muted);">
+            Chưa có tài khoản? <a href="#" id="switchToRegister" style="color: var(--primary); font-weight: 600;">Đăng ký</a>
+          </p>
+        </div>
+
+        <div id="registerForm" class="auth-form" style="display: none;">
+          <form id="registerFormEl">
+            <input type="text" placeholder="Tên của bạn" required />
+            <input type="email" placeholder="Email" required />
+            <input type="tel" placeholder="Số điện thoại" required />
+            <input type="password" placeholder="Mật khẩu" required />
+            <input type="password" placeholder="Xác nhận mật khẩu" required />
+            <button class="primary-btn" type="submit">Đăng ký</button>
+          </form>
+          <p style="text-align: center; margin-top: 12px; color: var(--muted);">
+            Đã có tài khoản? <a href="#" id="switchToLogin" style="color: var(--primary); font-weight: 600;">Đăng nhập</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

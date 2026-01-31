@@ -1,0 +1,26 @@
+# GitHub Pages Configuration
+
+# Ignore dependencies
+node_modules/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Cache
+.cache/
+*.log
+
+# Build
+dist/
+build/
+
+# Optional npm cache
+.npm
+*.tgz
